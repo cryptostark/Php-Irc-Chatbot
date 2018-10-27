@@ -8,15 +8,13 @@ Still in early ALPHA. Ver.: 0.8
 $time_start = microtime(true);
 
 $sock   = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-$server = "irc.tauri.hu";
-$port   = "6667";
+$server = "";
+$port   = "";
 $yonk   = socket_connect($sock, $server, $port);
 socket_write($sock, "NICK BOTNAME \r\n");
 socket_write($sock, "USER BOTNAME BOTNAME BOTNAME :GRP\r\n");
 socket_write($sock, "JOIN #CHANNEL\r\n");
-//socket_write($sock, "/msg nickserv group GRP jelszo\r\n");
-//socket_write($sock, "PRIVMSG NickServ group GRP johosszujelszoqwe\r\n");
-socket_write($sock, "PRIVMSG NickServ :identify johosszujelszoqwe\r\n");
+socket_write($sock, "PRIVMSG NickServ :identify PW\r\n");
 $toPaste = "";
 welcome();
 $bandwidth = 0;
@@ -87,9 +85,6 @@ function record_login($user, $lastjoin, $lastquit)
 function welcome()
 {
     global $sock;
-    sendSocket("PRIVMSG", "Sontiii", "Connected!");
-    sendSocket("PRIVMSG", "Sontii", "Connected!");
-    sendSocket("PRIVMSG", "Sont", "Connected!");
     sendSocket("PRIVMSG", "Sonti", "Connected!");
 }
 //echo "WHILE ELOTT\n";
@@ -467,7 +462,7 @@ function pastebin($szoveg)
 function getlast($kinek, $mennyit, $hovaMent)
 {
     
-    $db = new SQLite3('/var/www/sqlite/irclog.db');
+    $db = new SQLite3('/path/to/sqlite.db');
     
     $stmt = $db->prepare('select whattime, fromuser, touser, msg from (select * from irclog order by id desc limit (?)) irclog order by id asc;');
     $stmt->bindValue(1, $mennyit, SQLITE3_TEXT);
