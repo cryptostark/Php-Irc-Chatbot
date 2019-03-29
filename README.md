@@ -2,7 +2,7 @@
 Simple chatbot for IRC written in PHP
 
 ## Demo: ##
-[Tauri IRCSeeker](https://sont.sytes.net/ircseeker.php/).
+[Tauri IRCSeeker](https://sont.sytes.net/ircseeker.php/)
 
 ## Basic config:
 
