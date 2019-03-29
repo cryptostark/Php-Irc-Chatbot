@@ -8,14 +8,14 @@ Simple chatbot for IRC written in PHP
 
 ### IRC Server address
 ```
-$server = "";
-$port   = "";
+$server = "irc.example.com";
+$port   = "6667";
 ```
 
 ### Nickname of the bot
 ```
-socket_write($sock, "NICK BOTNAME \r\n");
-socket_write($sock, "USER BOTNAME BOTNAME BOTNAME :GRP\r\n");
+socket_write($sock, "NICK JOHN \r\n");
+socket_write($sock, "USER JOHN JOHN JOHN :john\r\n");
 socket_write($sock, "JOIN #CHANNEL\r\n");
 ```
 
