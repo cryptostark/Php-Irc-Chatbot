@@ -1,7 +1,6 @@
 <?php
 
 /*
-The bot is written in PHP by GRP.
 Still in early ALPHA. Ver.: 0.8
 */
 
